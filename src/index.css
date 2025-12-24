@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+body {
+  direction: rtl;
+}
+
+/* --- Calendar Overrides --- */
+
+/* 1. Force the calendar to take full width (overriding the default 350px) */
+.react-calendar {
+    width: 100% !important;
+    max-width: 100%;
+    border: none;
+    background: transparent;
+    font-family: inherit;
+    line-height: 1.125em;
+}
+
+/* 2. Remove default padding/margin from tiles */
+.react-calendar__tile {
+    padding: 0 !important; 
+    overflow: hidden;
+    border: 1px solid #f3f4f6; /* Light gray grid lines */
+}
+
+/* 3. Weekend styling */
+.react-calendar__month-view__days__day--weekend {
+    color: #d10000;
+}
+
+/* 4. Hide navigation double arrows (<< and >>) */
+.react-calendar__navigation__next2-button,
+.react-calendar__navigation__prev2-button {
+    display: none;
+}
+
+.react-calendar__navigation button {
+    font-size: 1.2rem;
+    font-weight: bold;
+    min-width: 44px;
+    background: none;
+}
+
+/* --- RESPONSIVE SIZING --- */
+
+/* Mobile (Default): Moderate height, standard text */
+.react-calendar__tile {
+    height: 70px; 
+    font-size: 0.9rem;
+}
+
+/* Desktop (Screens larger than 768px): Taller tiles, bigger text */
+@media (min-width: 768px) {
+    .react-calendar__tile {
+        height: 120px; /* Much taller tiles */
+        font-size: 1.1rem;
+    }
+    
+    /* Make the day numbers (1, 2, 3...) bigger */
+    .react-calendar__month-view__days__day {
+        font-size: 1.2rem; 
+    }
+    
+    /* Make the "Absent/Work" text bigger */
+    .react-calendar__tile div {
+        font-size: 0.9rem !important; /* The badge text size */
+    }
+}
